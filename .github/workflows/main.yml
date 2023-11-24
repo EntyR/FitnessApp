@@ -1,6 +1,6 @@
 name: code-quality
 run-name: ${{ github.actor }} is starting code quality check
-on: [push]
+on: pull_request
 jobs:
   check-code-quality:
     runs-on: ubuntu-latest
@@ -14,4 +14,4 @@ jobs:
       - name: Run ESLint
         run: npm run lint
       - name: Run Prettier
-        run: npm run prettier
+        run: npm run prettier --check .
